@@ -59,18 +59,18 @@ module.exports = {
 
             },
 
-            {
-                test: /\.(png|svg|jpg|gif)$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            esModule: false,
-                            name: 'assets/[name].[ext]'
-                        }
-                    }
-                ]
-            }
+            // {
+            //     test: /\.(png|svg|jpg|gif)$/,
+            //     use: [
+            //         {
+            //             loader: 'file-loader',
+            //             options: {
+            //                 esModule: false,
+            //                 name: 'assets/[name].[ext]'
+            //             }
+            //         }
+            //     ]
+            // }
         ]
     },
     
