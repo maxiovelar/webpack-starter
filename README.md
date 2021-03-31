@@ -2,7 +2,7 @@
 
 This project is a template for create apps using webpack.
 
-### Notas:
+### Notes:
 Remember to rebuild node_modules:
 ```
 npm install
