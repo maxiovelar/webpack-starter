@@ -44,18 +44,14 @@ module.exports = {
 
             },
 
-            // {
-            //     test: /\.(png|svg|jpg|gif)$/,
-            //     use: [
-            //         {
-            //             loader: 'file-loader',
-            //             options: {
-            //                 esModule: false,
-            //                 name: 'assets/[name].[ext]'
-            //             }
-            //         }
-            //     ]
-            // }
+            {
+                test: /\.(ico|png|jpg|jpeg|gif)/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/images/[name].[hash].[ext][query]'
+                }
+            }
+
         ]
     },
     
@@ -66,7 +62,7 @@ module.exports = {
         }),
         new CopyPlugin({
             patterns: [
-            { from: 'src/assets', to: 'assets/' },
+                { from: 'src/assets', to: 'assets/' },
             ]
         }),
         new HtmlWebPackPlugin({

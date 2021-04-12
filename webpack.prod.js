@@ -14,7 +14,8 @@ module.exports = {
     output: {
         filename: 'main.[contenthash].js',
         clean: true,
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        assetModuleFilename: 'assets/[name].[hash].[ext][query]'
     },
     module: {
         rules: [
@@ -59,18 +60,14 @@ module.exports = {
 
             },
 
-            // {
-            //     test: /\.(png|svg|jpg|gif)$/,
-            //     use: [
-            //         {
-            //             loader: 'file-loader',
-            //             options: {
-            //                 esModule: false,
-            //                 name: 'assets/[name].[ext]'
-            //             }
-            //         }
-            //     ]
-            // }
+            {
+                test: /\.(ico|png|svg|jpg|jpeg|gif)/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/[name].[hash].[ext][query]'
+                }
+            }
+
         ]
     },
     
@@ -81,7 +78,7 @@ module.exports = {
         }),
         new CopyPlugin({
             patterns: [
-            { from: 'src/assets', to: 'assets/' },
+                { from: 'src/assets', to: 'assets/' },
             ]
         }),
         new HtmlWebPackPlugin({
