@@ -45,10 +45,10 @@ module.exports = {
             },
 
             {
-                test: /\.(ico|png|jpg|jpeg|gif)/,
+                test: /\.(?:ico|gif|png|svg|jpg|jpeg)$/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'assets/[name].[contenthash].[ext][query]'
+                    filename: 'assets/[name][ext][query]'
                 }
             }
 

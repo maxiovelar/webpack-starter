@@ -14,7 +14,7 @@ module.exports = {
         filename: 'main.[contenthash].js',
         clean: true,
         path: path.resolve(__dirname, 'dist'),
-        assetModuleFilename: 'assets/[name].[contenthash].[ext][query]'
+        assetModuleFilename: 'assets/[name][ext][query]'
     },
     module: {
         rules: [
@@ -60,10 +60,10 @@ module.exports = {
             },
 
             {
-                test: /\.(ico|png|svg|jpg|jpeg|gif)/,
+                test: /\.(?:ico|gif|png|svg|jpg|jpeg)$/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'assets/[name].[contenthash].[ext][query]'
+                    filename: 'assets/[name][ext][query]'
                 }
             }
 
