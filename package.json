@@ -1,5 +1,5 @@
 {
-  "name": "webpack-inicial",
+  "name": "webpack-starter",
   "version": "1.0.0",
   "description": "This is a template of a project with webpack",
   "main": "index.js",
