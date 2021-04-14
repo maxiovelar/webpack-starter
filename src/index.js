@@ -1,5 +1,5 @@
 import {welcome} from './js/components';
-import './styles.css';
+import './bulma.css';
 
 const name = 'user';
 

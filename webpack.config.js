@@ -16,7 +16,7 @@ module.exports = {
             {
 
                 test: /\.css$/,
-                exclude: /styles\.css$/,
+                exclude: /bulma\.css$/,
                 use: [
                     'style-loader', 
                     'css-loader'
@@ -26,7 +26,7 @@ module.exports = {
 
             {
 
-                test: /styles\.css$/,
+                test: /bulma\.css$/,
                 use: [
                     MiniCssExtractPlugin.loader, 
                     'css-loader'
