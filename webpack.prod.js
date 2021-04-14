@@ -14,17 +14,17 @@ module.exports = {
 
     mode: 'production',
     optimization: {
-        minimizer: [new OptimizeCssAssetsPlugin()],
-        splitChunks: {
-            cacheGroups: {
-              styles: {
-                name: 'styles',
-                test: /\.css$/,
-                chunks: 'all',
-                enforce: true
-              }
-            }
-        }
+        minimizer: [new OptimizeCssAssetsPlugin()]
+        // splitChunks: {
+        //     cacheGroups: {
+        //       styles: {
+        //         name: 'styles',
+        //         test: /\.css$/,
+        //         chunks: 'all',
+        //         enforce: true
+        //       }
+        //     }
+        // }
     },
     output: {
         filename: 'main.[contenthash].js',
