@@ -1,14 +1,30 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
 const path = require('path');
+const glob = require('glob');
+
+const PATHS = {
+    src: path.join(__dirname, 'src')
+  }
 
 module.exports = {
 
     mode: 'production',
     optimization: {
-        minimizer: [new OptimizeCssAssetsPlugin()]
+        minimizer: [new OptimizeCssAssetsPlugin()],
+        splitChunks: {
+            cacheGroups: {
+              styles: {
+                name: 'styles',
+                test: /\.css$/,
+                chunks: 'all',
+                enforce: true
+              }
+            }
+        }
     },
     output: {
         filename: 'main.[contenthash].js',
@@ -75,6 +91,9 @@ module.exports = {
             filename: '[name].[contenthash].css',
             ignoreOrder: false
         }),
+        new PurgecssPlugin({
+            paths: glob.sync(`${PATHS.src}/**/*`,  { nodir: true }),
+          }),
         new HtmlWebPackPlugin({
             template: './src/index.html',
             filename: './index.html',
