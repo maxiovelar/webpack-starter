@@ -37,7 +37,7 @@ module.exports = {
             {
 
                 test: /\.css$/,
-                exclude: /styles\.css$/,
+                exclude: /bootstrap\.css$/,
                 use: [
                     'style-loader', 
                     'css-loader'
@@ -47,7 +47,7 @@ module.exports = {
 
             {
 
-                test: /styles\.css$/,
+                test: /bootstrap\.css$/,
                 use: [
                     MiniCssExtractPlugin.loader, 
                     'css-loader'
