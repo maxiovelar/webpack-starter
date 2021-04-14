@@ -1,8 +1,14 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
 const path = require('path');
+const glob = require('glob');
+
+const PATHS = {
+    src: path.join(__dirname, 'src')
+}
 
 module.exports = {
 
@@ -74,6 +80,9 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
             ignoreOrder: false
+        }),
+        new PurgecssPlugin({
+            paths: glob.sync(`${PATHS.src}/**/*`,  { nodir: true }),
         }),
         new HtmlWebPackPlugin({
             template: './src/index.html',
